@@ -1,0 +1,40 @@
+    body{
+        background-image: url(rainbow-background.avif);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    button{
+       
+        font-family: cursive;
+        font-size: 25px;
+        background-color: #7f1f49;
+        border-radius: 10px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        border-color: white;
+        border-width: 3px;
+        color: white;
+        margin-top:30px;
+        width: 200px;
+        height: 80px;
+        opacity: 0.8;
+    }
+    button:hover{
+        background-color: white;
+        color:#7f1f49;
+       
+    
+    }
+    h1 {
+        font-size:70px;
+        color:white;
+        font-style:bold;
+        font-family:cursive;
+        margin:50px;
+       text-align:center;
+    
+    }

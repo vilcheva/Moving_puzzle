@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register Login form</title>
+        <link rel="stylesheet" href="./login_register.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head> 
+    <body>
+        <h1 id="title">Moving Puzzle</h1>
+        <ul id="form">
+        <li class="container">
+            <label>Registration</label>
+            <ul>
+                <li class="name">name:
+                    <textarea id="name" rows="1"></textarea>
+                </li>
+                <li class="name">
+                    surname:
+                    <textarea rows="1" id="surname"></textarea>
+                </li>
+                <li> uesrname/email:
+                    <textarea id="email" rows="1" ></textarea>
+                </li>
+                <li >password:
+                    <textarea rows="1" id="pass"></textarea>
+                </li>
+                <li>confirm password:
+                    <textarea rows="1" id="passConfirm"></textarea>
+                </li>
+                <li>
+                    <button onclick="saveData()" id="register" >Create Account</button>
+                </li>
+            </ul>
+        </li>
+        <li class="container">
+            <label>Login</label>
+            <ul>
+                <li>
+                    username/email: 
+                    <textarea rows="1" id="username"></textarea>
+                </li>
+                <li>
+                    password: 
+                    <textarea rows="1" id="password"></textarea>
+                </li>
+                <li>
+                    <button onclick="Login()" id="login">Login</button>
+                </li>
+            </ul>
+        </li>
+    </body>
+    <script>
+       
+        let user_records=new Array();
+           function saveData(){   
+           let name=document.getElementById("name").value
+           let surname=document.getElementById("surname").value
+           let pass=document.getElementById("pass").value
+           let passC=document.getElementById("passConfirm").value
+           let email=document.getElementById("email").value
+           const register=document.querySelector("register")
+             
+       user_records=JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")):[]
+       
+       if(user_records.some((v)=>{return v.email==email})||user_records.some((v)=>{return v.pass==pass}))
+       {
+           alert("There is an account with this password or email already!");
+       }
+         else if(name.length==0 || surname.length==0|| email.length==0)
+       {
+           alert("All fields must be filled");
+       }
+       else if(pass!=passC)
+       {
+           alert("Different passwords");
+       }
+       else if(pass.length<6)
+       {
+           alert("Password must be at least 6 symbols");
+       }
+      
+       else
+       {
+         user_records.push({
+         "name":name,
+         "surname":surname,
+         "email":email,
+         "pass":pass,
+         "passC":passC,
+         "record":0,
+         "flag":false
+       })
+       
+       user_records.forEach(element => {
+         if(element.email!=username)
+             element.flag=false;
+        else{
+            element.flag=true;
+        }
+          })
+          localStorage.clear()
+       localStorage.setItem("users",JSON.stringify(user_records));
+         window.location='welcome.html'
+       }
+   }
+   
+   function Login()
+   {
+   
+       let username=document.getElementById("username").value;
+       let password=document.getElementById("password").value;
+       user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+     if(user_records.some((v)=>{return v.email==username && v.pass==password}))
+     {
+        user_records.forEach(element => {
+         if(element.email!=username)
+             element.flag=false;
+        else{
+            element.flag=true;
+        }
+          })
+          localStorage.clear()
+        localStorage.setItem("users",JSON.stringify(user_records));
+        window.location="menu.html";
+     }
+    else
+     {
+       alert('Wrong username or password');
+     }
+   
+   }
+       </script>
+   

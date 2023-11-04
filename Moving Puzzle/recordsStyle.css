@@ -1,0 +1,66 @@
+h1{
+    text-align: center;
+    font-family:cursive;
+    font-size: 100px;
+    color: white;
+}
+button{
+    text-align: center;
+    font-family: cursive;
+    font-size: 25px;
+    height: 60px;
+    background-color: #7f1f49;
+    border-radius: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: white;
+    border-width: 3px;
+    color: white;
+    opacity: 0.9;
+    margin-top: 60px;
+   
+}
+button:hover{
+    background-color: white;
+    color:#7f1f49;
+
+}
+#my_record{
+    background-color: white;
+    color:#7f1f49
+}
+#records_container{
+    height: 500px;
+    width: 500px;
+    background-color: #af2d66;
+    opacity:0.7;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border: 2px solid;
+
+
+}
+
+th{
+    border: 2px solid;
+    font-size: 20px;
+}
+td{
+    border: 2px solid;
+}
+.record_item{
+    text-align: center;
+    font-family: cursive;
+    color:white;
+    font-size: 15px;
+    border: 2px solid;
+}
+body{
+    background-image: url(rainbow-background.avif);
+    height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
